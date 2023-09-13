@@ -1,0 +1,102 @@
+.div-cards {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color1);
+  overflow-y: auto;
+  grid-auto-rows: 29rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  & .card {
+    display: grid;
+    height: 90%;
+    width: 90%;
+    grid-template-columns: 100%;
+    grid-template-rows: 70% 20% 10%;
+    align-self: center;
+    justify-self: center;
+    border-radius: 2.5em;
+    overflow: hidden;
+    background-color: var(--color2);
+    animation: appear 1s ease forwards;
+    & .div-img {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: black;
+    }
+    & .div-img img {
+      width: 85%;
+      height: 85%;
+      object-fit: cover;
+      object-position: center;
+      justify-self: center;
+      border-radius: 1.5em;
+    }   
+    & h3 {
+      display: inline-block;
+      padding-top: .3em;
+      text-align: center;
+      overflow-y: clip;      /* Oculta el contenido que exceda el contenedor */
+      position: relative;
+      padding-left: 1em;
+      padding-right: 1em;
+      color: var(--color0);
+    }
+    & .link {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      justify-content: center;
+      align-items: start;
+      & a {
+        color: var(--color-1);
+        position: relative;
+        padding-top: .3em;
+        display: inline-flex;
+        top: -.3em;
+        justify-self: center;
+        margin-left: 1.6em;
+        width: fit-content;
+      }
+      & button {
+        padding: 0.3em;
+        color: var(--color0);
+        background-color: var(--color4);
+        width: fit-content;
+        border: none;
+        border-radius: 1em;
+        justify-self: center;
+        align-items: center;
+        margin-right: 1.6em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        transition: border-radius 0.3s ease, padding 0.3s, transform 0.2s;
+      }
+      & button:hover {
+        border-radius: 0.1em;
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+      }
+      & button:active {
+        transform: scale(0.8);
+      }
+    }
+  }
+  & .card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.716);
+  }
+  & .card:hover, .card:hover .div-img img{
+    border-radius: .3em;
+  }
+}
+
+img, .card { 
+  transition: border-radius 1s ease, transform 0.3s, box-shadow 0.3s;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}

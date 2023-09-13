@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --color-1: #82ff71;
+  --color0:  #e9fae6;
+  --color1:  #88cc7ec5;
+  --color2:  #2a6c20;
+  --color3:  #14520e;
+  --color4:  #0a3d07c5;
+  --color5:  #002700;
+}
+body {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+}
+app-home {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 13% 87%;
+  grid-template-columns: 100%;
+}
+.div-cards::-webkit-scrollbar {
+  width: 1rem;
+}
+.div-cards::-webkit-scrollbar-thumb {
+  background-color: var(--color4);
+  border-radius: 1rem;
+}

@@ -1,0 +1,62 @@
+header {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 7vh 1fr 1fr;
+  background-color: var(--color5);
+  color: var(--color0);
+  & h3 {
+    font-size: 3vh;
+    margin-bottom: .2em;
+    padding-left: .5em;
+  }
+  & input {
+    height: 3vh;
+    padding: .4em;
+    padding-left: 1.5em;
+    outline: none;
+    border: none;
+    border-radius: 2em;
+    margin-right: 3vw;
+    transition: padding 0.3s, height 0.3s, border-radius .8s ease;
+  }
+  & input:focus, input:not(:placeholder-shown) {
+    border: 3px solid var(--color0);
+    padding-left: .5em;
+    border-radius: 0;
+    height: 4vh;
+  }
+}
+
+.menu-btn {
+  display: grid;
+  width: 35px;
+  height: 30px;
+  position: relative;
+  align-content: center;
+  justify-self: center;
+}
+
+.menu-btn .bar1, .menu-btn .bar2, .menu-btn .bar3 {
+  width: 35px;
+  height: 3px;
+  background-color: var(--color0);
+  margin: 4px 0;
+  transition: transform .8s ease, opacity .8s ease;
+}
+
+/* Estilos cuando el menú está activo */
+.menu-btn.active .bar1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+  height: 4px;
+  border-radius: 2px;
+}
+
+.menu-btn.active .bar2 {
+  opacity: 0;
+}
+
+.menu-btn.active .bar3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+  height: 4px;
+  border-radius: 2px;
+}

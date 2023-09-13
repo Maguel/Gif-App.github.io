@@ -1,0 +1,9 @@
+<header>
+  <div (click)="activeBtn()" [class.active]="active" class="menu-btn" onclick="toggleMenu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <h3>App Gifs Searcher</h3>
+  <input [(ngModel)]="toSearch" (keyup.enter)="search()" type="text" name="search" id="search" placeholder="Search Gif">
+</header>
