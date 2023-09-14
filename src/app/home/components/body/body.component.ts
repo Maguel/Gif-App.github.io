@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GifsService } from 'src/app/service/gifs.service';
 import { StateService } from 'src/app/service/state.service';
 import { Gif } from '../../../interface/gifs.interface';
@@ -8,7 +8,7 @@ import { Gif } from '../../../interface/gifs.interface';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.scss']
 })
-export class BodyComponent {
+export class BodyComponent implements OnInit{
   historyActive: boolean = false;
   historyClose: boolean = false;
   constructor(
@@ -21,6 +21,13 @@ export class BodyComponent {
     this.stateService.hideComponent$.subscribe(
       valor => this.historyClose = valor
     );
+  }
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    if(this.gifsService.resultados) {
+      this.gifsService.buscarGifs('welcome');
+    }
   }
   get gifs(): Gif[] {
     return this.gifsService.resultados;

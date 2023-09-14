@@ -62,7 +62,7 @@ export class GifsService {
       // Definimos un objeto para estructurar la petición adecuadamente.
       const params = new HttpParams()
       .set('api_key', this._apiKey)
-      .set('limit', '25')
+      .set('limit', '18')
       .set('q', query);
 
       // Anteriormente utilizabamos promesas ahora utilizaremos observables, los cuales son de tipo T.
