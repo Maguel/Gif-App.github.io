@@ -79,8 +79,7 @@ export class GifsService {
       this.resultados = JSON.parse(localStorage.getItem(query)!) || [];
     }
     for (let key of localStorageKeys) {
-      if (!this._historial.includes(key)) {
-        if(key!=='historial')
+      if (!this._historial.includes(key) && key !== 'historial' && key !== 'resultados') {
           localStorage.removeItem(key);
       }
     }

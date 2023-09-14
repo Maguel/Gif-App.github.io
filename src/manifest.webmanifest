@@ -1,8 +1,8 @@
 {
   "name": "Gif-App",
   "short_name": "Gif-App",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#002700",
+  "background_color": "#e9fae6",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
