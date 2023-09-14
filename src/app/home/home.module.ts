@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BodyComponent } from './components/body/body.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './home.component';
+import { HistoryComponent } from './components/history/history.component';
 
 
 
@@ -11,7 +12,8 @@ import { HomeComponent } from './home.component';
   declarations: [
     HomeComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,

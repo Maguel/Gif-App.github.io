@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GifsService } from 'src/app/service/gifs.service';
+import { StateService } from 'src/app/service/state.service';
 
 @Component({
   selector: 'app-header',
@@ -11,13 +12,18 @@ export class HeaderComponent {
   toSearch: string = '';
 
   constructor(
-    readonly gifsService:GifsService
-  ){}
+    readonly gifsService:GifsService,
+    readonly stateService: StateService) {
+      this.stateService.showComponent$.subscribe(
+        valor => this.active = valor
+      );
+    }
 
   search(): void {
     this.gifsService.buscarGifs(this.toSearch);
   }
   activeBtn(): void {
-    this.active = this.active?false:true;
+   this.stateService.toggleComponent();
+   this.stateService.hideComponent();
   }
 }

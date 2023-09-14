@@ -3,4 +3,25 @@ app-header {
 }
 app-body {
   display: grid;
+  grid-template-areas: "a b";
+}
+app-body.two-children{
+  animation: expand .3s ease forwards;
+}
+app-body.decrease{
+  animation: decrease .3s ease forwards;
+}
+@keyframes expand {
+  from {
+    grid-template-columns: 0vh 1fr;
+  } to {
+    grid-template-columns: 25vh 1fr;
+  }
+}
+@keyframes decrease {
+  from {
+    grid-template-columns: 25vh 1fr;
+  } to {
+    grid-template-columns: 0vh 1fr;
+  }
 }

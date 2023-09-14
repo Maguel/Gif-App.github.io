@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GifsService } from 'src/app/service/gifs.service';
+import { StateService } from 'src/app/service/state.service';
 import { Gif } from '../../../interface/gifs.interface';
 
 @Component({
@@ -8,9 +9,19 @@ import { Gif } from '../../../interface/gifs.interface';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent {
+  active: boolean = false;
   constructor(
-    readonly gifsService: GifsService
-  ){ }
+    readonly gifsService: GifsService,
+    readonly stateService: StateService
+  ) { 
+    this.stateService.showComponent$.subscribe(
+      valor => {
+        setTimeout(() => {
+          this.active = valor
+        },100);
+      }
+    );
+  }
   get gifs(): Gif[] {
     return this.gifsService.resultados;
   }

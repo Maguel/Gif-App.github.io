@@ -1,0 +1,30 @@
+
+div{
+  overflow-y: auto;
+  .word { 
+    display: flex;
+    color: var(--color0);
+    margin-top: 1em;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
+    transition: background-color .3s ease;
+    user-select: none;
+  }
+}
+h3 {
+  display: flex;
+  width: 95%;
+  justify-content: center;
+  color: var(--color0);
+  margin-top: .3em;
+  padding-bottom: .5em;
+  margin-bottom: .2em;
+  border-bottom: 1px solid var(--color0);
+}
+div.word:hover {
+  background-color: var(--color0);
+  color: var(--color5);
+}

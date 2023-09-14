@@ -32,50 +32,57 @@ export class GifsService {
    }
 
   buscarGifs( query:string ) {
-    
+    let localStorageKeys = Object.keys(localStorage);
     query = query.trim().toLowerCase();
 
     if(!this._historial.includes(query)) {
       this._historial.unshift(query);
-      this._historial = this._historial.splice(0,10);
+      this._historial = this._historial.splice(0,20);
 
       // Grabar en local storage
       localStorage.setItem('historial', JSON.stringify(this._historial));
-    }
-
-    /*
-    Forma uno de realizar consulta:
-    fetch('https://api.giphy.com/v1/gifs/search?api_key=Antmup2D7vqT0Y2KpBchYE1PETkTS551&q=dragon ball z&limit=10');
-    .then( resp => {
-      resp.json().then(data => {
-        console.log(data);
+      /*
+      Forma uno de realizar consulta:
+      fetch('https://api.giphy.com/v1/gifs/search?api_key=Antmup2D7vqT0Y2KpBchYE1PETkTS551&q=dragon ball z&limit=10');
+      .then( resp => {
+        resp.json().then(data => {
+          console.log(data);
+        })
       })
-    })
-    */
+      */
 
-    /*
-    Forma dos de realizar consulta:
-    La función se agrega el término async,
-    const resp = await fetch('https://api.giphy.com/v1/gifs/search?api_key=Antmup2D7vqT0Y2KpBchYE1PETkTS551&q=dragon ball z&limit=10')
-    const data = await resp.json();
-    console.log(data);
-    */
+      /*
+      Forma dos de realizar consulta:
+      La función se agrega el término async,
+      const resp = await fetch('https://api.giphy.com/v1/gifs/search?api_key=Antmup2D7vqT0Y2KpBchYE1PETkTS551&q=dragon ball z&limit=10')
+      const data = await resp.json();
+      console.log(data);
+      */
 
-    // Definimos un objeto para estructurar la petición adecuadamente.
-    const params = new HttpParams()
-    .set('api_key', this._apiKey)
-    .set('limit', '25')
-    .set('q', query);
+      // Definimos un objeto para estructurar la petición adecuadamente.
+      const params = new HttpParams()
+      .set('api_key', this._apiKey)
+      .set('limit', '25')
+      .set('q', query);
 
-    // Anteriormente utilizabamos promesas ahora utilizaremos observables, los cuales son de tipo T.
-    this.http.get<SearchGifsResponse>(`${this._baseUrl}/search`,{ params })
-    .subscribe( (response) => {
-      console.log(response.data);
-      this.resultados = response.data;
-      localStorage.setItem('resultados', JSON.stringify(this.resultados));
-    })
+      // Anteriormente utilizabamos promesas ahora utilizaremos observables, los cuales son de tipo T.
+      this.http.get<SearchGifsResponse>(`${this._baseUrl}/search`,{ params })
+      .subscribe( (response) => {
+        console.log(response.data);
+        this.resultados = response.data;
+        localStorage.setItem('resultados', JSON.stringify(this.resultados));
+        localStorage.setItem(query, JSON.stringify(this.resultados));
+      })
 
-    console.log(this._historial);
+      console.log(this._historial);
+    } else {
+      this.resultados = JSON.parse(localStorage.getItem(query)!) || [];
+    }
+    for (let key of localStorageKeys) {
+      if (!this._historial.includes(key)) {
+        localStorage.removeItem(key);
+      }
+    }
   }
 
 }

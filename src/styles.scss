@@ -27,11 +27,20 @@ app-home {
   height: 100%;
   grid-template-rows: 13% 87%;
   grid-template-columns: 100%;
+  background-color: var(--color1);
 }
+
 .div-cards::-webkit-scrollbar {
   width: 1rem;
 }
 .div-cards::-webkit-scrollbar-thumb {
   background-color: var(--color4);
+  border-radius: 1rem;
+}
+app-history div::-webkit-scrollbar {
+  width: .7em;
+}
+app-history div::-webkit-scrollbar-thumb {
+  background-color: var(--color1);
   border-radius: 1rem;
 }
