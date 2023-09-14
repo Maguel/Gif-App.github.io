@@ -25,7 +25,7 @@ export class BodyComponent implements OnInit{
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    if(this.gifsService.resultados) {
+    if(this.gifsService.resultados.length === 0) {
       this.gifsService.buscarGifs('welcome');
     }
   }
