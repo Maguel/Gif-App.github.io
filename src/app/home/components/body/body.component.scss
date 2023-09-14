@@ -11,7 +11,7 @@
     height: 90%;
     width: 90%;
     grid-template-columns: 100%;
-    grid-template-rows: 70% 20% 10%;
+    grid-template-rows: 70% 18% 12%;
     align-self: center;
     justify-self: center;
     border-radius: 2.5em;
@@ -137,5 +137,17 @@ app-history.toLeft {
 @media(max-width: 400px) {
   .div-cards .card h3 {
     font-size: 4vw;
+  }
+}
+@media(max-width: 600px) {
+  .div-cards {
+    grid-auto-rows: 20rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
+}
+@media(max-width: 500px) {
+  .div-cards {
+    grid-auto-rows: 20rem;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   }
 }
