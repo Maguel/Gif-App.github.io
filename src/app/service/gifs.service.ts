@@ -80,7 +80,8 @@ export class GifsService {
     }
     for (let key of localStorageKeys) {
       if (!this._historial.includes(key)) {
-        localStorage.removeItem(key);
+        if(key!=='historial')
+          localStorage.removeItem(key);
       }
     }
   }

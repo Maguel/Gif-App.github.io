@@ -129,8 +129,13 @@ app-history {
     transform: translateX(-50px);
   }
 }
-@media(max-width: 400px) {
+@media(max-width: 300px) {
   .div-cards {
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  }
+}
+@media(max-width: 400px) {
+  .div-cards .card h3 {
+    font-size: 4vw;
   }
 }
