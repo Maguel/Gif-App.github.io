@@ -144,6 +144,12 @@ app-history.toLeft {
     grid-auto-rows: 20rem;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   }
+  .div-cards .card h3 {
+    font-size: 2.7vw;
+  }
+  .div-cards .card .link button {
+    font-size: .7em;
+  }
 }
 @media(max-width: 500px) {
   .div-cards {
