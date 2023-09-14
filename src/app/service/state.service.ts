@@ -15,7 +15,13 @@ export class StateService {
   hideComponent$ = this.hideComponentSubjet.asObservable();
 
   toggleComponent(): void {
-    this.showComponentSubject.next(!this.showComponentSubject.value);
+    if(!this.showComponentSubject.value) {
+      this.showComponentSubject.next(!this.showComponentSubject.value);
+    }else {
+      setTimeout(() => {
+        this.showComponentSubject.next(!this.showComponentSubject.value);
+      },300);
+    }
   }
   hideComponent(): void {
     this.hideComponentSubjet.next(!this.hideComponentSubjet.value);

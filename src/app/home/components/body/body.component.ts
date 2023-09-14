@@ -9,17 +9,17 @@ import { Gif } from '../../../interface/gifs.interface';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent {
-  active: boolean = false;
+  historylActive: boolean = false;
+  historylClose: boolean = false;
   constructor(
     readonly gifsService: GifsService,
     readonly stateService: StateService
   ) { 
     this.stateService.showComponent$.subscribe(
-      valor => {
-        setTimeout(() => {
-          this.active = valor
-        },100);
-      }
+      valor => this.historylActive = valor
+    );
+    this.stateService.hideComponent$.subscribe(
+      valor => this.historylClose = valor
     );
   }
   get gifs(): Gif[] {

@@ -112,8 +112,8 @@ app-history {
   direction: rtl;
   animation: leftToRight 1s ease forwards;
 }
-.toLeft {
-  animation: rightToLesft .5s ease forwards;
+app-history.toLeft {
+  animation: rightToLeft .3s ease forwards;
 }
 @keyframes leftToRight {
   from {
@@ -122,11 +122,11 @@ app-history {
     transform: translateX(0px);
   }
 }
-@keyframes rightToLesft {
+@keyframes rightToLeft {
   from {
-    transform: translateX(0px);
+    transform: translateY(0px);
   } to {
-    transform: translateX(-50px);
+    transform: translateX(-100px);
   }
 }
 @media(max-width: 300px) {
