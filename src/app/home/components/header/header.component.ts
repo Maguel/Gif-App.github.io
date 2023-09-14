@@ -8,14 +8,14 @@ import { StateService } from 'src/app/service/state.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  active:boolean = false;
+  historyClose: boolean = false;
   toSearch: string = '';
 
   constructor(
     readonly gifsService:GifsService,
     readonly stateService: StateService) {
-      this.stateService.showComponent$.subscribe(
-        valor => this.active = valor
+      this.stateService.hideComponent$.subscribe(
+        valor => this.historyClose = valor
       );
     }
 

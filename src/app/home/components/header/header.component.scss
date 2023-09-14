@@ -40,7 +40,7 @@ header {
   height: 3px;
   background-color: var(--color0);
   margin: 4px 0;
-  transition: transform .8s ease, opacity .8s ease;
+  transition: transform .5s ease, opacity .8s ease;
 }
 
 /* Estilos cuando el menú está activo */
@@ -57,10 +57,10 @@ header {
   transform: rotate(45deg) translate(-8px, -8px);
   border-radius: 2px;
 }
-@media(max-width: 400px) {
+@media(max-width: 500px) {
   header {
     & h3 {
-      font-size: 12px;
+      font-size: 16px;
     }
     & input {
       width: 35vw;
